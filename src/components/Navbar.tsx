@@ -1,10 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const navLinks = ["Home", "Metodologia", "Transformação", "Contactos"];
 const secondaryLinks = ["About us", "Careers", "Blog", "Contact", "Docs"];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+
+  useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const sections = [
+          { name: "Home", id: "home" },
+          { name: "Metodologia", id: "metodologia" },
+          { name: "Transformação", id: "transformacao" },
+          { name: "Contactos", id: "contactos" },
+        ];
+
+        // Check from bottom to top to get the most relevant section
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const element = document.getElementById(sections[i].id);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            // If section top is above the middle of viewport, it's the active one
+            if (rect.top < window.innerHeight / 2) {
+              setActiveLink(sections[i].name);
+              break;
+            }
+          }
+        }
+      }, 50);
+    };
+
+    // Call once on mount
+    const sections = [
+      { name: "Home", id: "home" },
+      { name: "Metodologia", id: "metodologia" },
+      { name: "Transformação", id: "transformacao" },
+      { name: "Contactos", id: "contactos" },
+    ];
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const element = document.getElementById(sections[i].id);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2) {
+          setActiveLink(sections[i].name);
+          break;
+        }
+      }
+    }
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(scrollTimeout);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/80 backdrop-blur-md border-b border-devin-border">
@@ -29,17 +83,28 @@ const Navbar = () => {
           else if (link === "Transformação") href = "#transformacao";
           else if (link === "Contactos") href = "#contactos";
           
+          const isActive = activeLink === link;
+          
           return (
             <a
               key={link}
               href={href}
+              onClick={(e) => {
+                e.preventDefault();
+                setActiveLink(link);
+                // Scroll to the section
+                const element = document.getElementById(href.replace("#", ""));
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                link === "Home"
+                isActive
                   ? "bg-secondary text-foreground"
                   : "text-devin-muted hover:text-foreground"
               }`}
             >
-              {link === "Home" && <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mr-2 align-middle" />}
+              {isActive && <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mr-2 align-middle" />}
               {link}
             </a>
           );
