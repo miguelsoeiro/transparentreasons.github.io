@@ -35,7 +35,7 @@ const HeroSection = () => {
 
 
   return (
-    <section className="relative pt-32 overflow-hidden">
+    <section id="home" className="relative pt-16 pb-0 overflow-hidden mb-0" style={{ overflow: 'hidden' }}>
       {/* Glow background */}
       <div className="absolute inset-0 gradient-glow pointer-events-none" />
       <div
@@ -46,7 +46,7 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="container max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-0">
         {/* Left */}
         <div className="space-y-8 animate-fade-in-up">
           {/* Badge */}
@@ -151,7 +151,7 @@ const HeroSection = () => {
       </div>
 
       {/* UseCases Carousel */}
-      <div className="container max-w-7xl mx-auto px-6 py-12 border-t border-devin-border">
+      <div className="container max-w-7xl mx-auto px-6 py-12 mb-0">
         <div className="mb-16 space-y-4">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground">
             Soluções que transformam
@@ -296,7 +296,7 @@ const HeroSection = () => {
         </div>
 
         {/* Use Cases Grid Section */}
-        <div className="mt-16 pt-16 border-t border-devin-border grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             {
               title: "Transformação Digital",
@@ -351,7 +351,7 @@ const HeroSection = () => {
         </div>
 
         {/* Process Section - A nossa Metodologia */}
-        <div className="mt-20 pt-20 border-t border-devin-border">
+        <div id="metodologia" className="mt-20 pt-20 border-t border-devin-border scroll-mt-24">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
               A nossa <span className="text-teal">Metodologia</span>
@@ -433,8 +433,8 @@ const HeroSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16">
-          <div className="relative rounded-3xl border border-devin-border bg-devin-card overflow-hidden p-12 text-center"
+        <div id="transformacao" className="mt-12 mb-0 pb-0 scroll-mt-24">
+          <div className="relative rounded-3xl border border-devin-border bg-devin-card overflow-hidden p-8 text-center mb-0"
             style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(186 100% 50% / 0.08) 0%, hsl(222 25% 12%) 60%)" }}>
             {/* Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-devin-teal to-transparent" />
@@ -452,7 +452,7 @@ const HeroSection = () => {
             </a>
 
             {/* Enterprise */}
-            <div className="mt-16 pt-12 border-t border-devin-border">
+            <div className="mt-16 pt-12 border-t border-devin-border mb-0">
               <p className="text-muted-foreground text-sm mb-1">Quer uma solução para toda a empresa?</p>
               <h3 className="text-2xl font-bold text-foreground mb-3">Solução Enterprise Completa</h3>
               <p className="text-muted-foreground max-w-lg mx-auto text-sm mb-6">
@@ -462,7 +462,7 @@ const HeroSection = () => {
                 <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">
                   Saiba Mais
                 </a>
-                <a href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors">
+                <a id="contactos" href="#" className="px-6 py-2.5 rounded-full bg-devin-surface border border-devin-border text-foreground text-sm font-medium hover:border-devin-teal/40 transition-colors scroll-mt-24">
                   Contacte-nos
                 </a>
               </div>

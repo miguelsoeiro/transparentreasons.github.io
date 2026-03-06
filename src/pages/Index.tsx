@@ -21,15 +21,17 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="bg-background text-foreground relative">
       {/* Background canvas containers (Three.js module attaches to #container) */}
-      <div id="container" />
+      <div id="container" className="absolute inset-0" style={{ height: '100%', overflow: 'hidden' }} />
       <div id="stats" />
       <div id="ui-container" />
 
-      <Navbar />
-      <HeroSection />
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <Footer />
+      </div>
     </div>
   );
 };

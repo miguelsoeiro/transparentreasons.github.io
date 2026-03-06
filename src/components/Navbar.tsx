@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const navLinks = ["Home", "Enterprise", "Pricing", "Customers"];
+const navLinks = ["Home", "Metodologia", "Transformação", "Contactos"];
 const secondaryLinks = ["About us", "Careers", "Blog", "Contact", "Docs"];
 
 const Navbar = () => {
@@ -22,20 +22,28 @@ const Navbar = () => {
 
       {/* Primary nav */}
       <div className="hidden md:flex items-center gap-1 bg-devin-surface border border-devin-border rounded-full px-2 py-1">
-        {navLinks.map((link) => (
-          <a
-            key={link}
-            href="#"
-            className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-              link === "Home"
-                ? "bg-secondary text-foreground"
-                : "text-devin-muted hover:text-foreground"
-            }`}
-          >
-            {link === "Home" && <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mr-2 align-middle" />}
-            {link}
-          </a>
-        ))}
+        {navLinks.map((link) => {
+          let href = "#";
+          if (link === "Home") href = "#home";
+          else if (link === "Metodologia") href = "#metodologia";
+          else if (link === "Transformação") href = "#transformacao";
+          else if (link === "Contactos") href = "#contactos";
+          
+          return (
+            <a
+              key={link}
+              href={href}
+              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                link === "Home"
+                  ? "bg-secondary text-foreground"
+                  : "text-devin-muted hover:text-foreground"
+              }`}
+            >
+              {link === "Home" && <span className="inline-block w-1.5 h-1.5 rounded-full bg-devin-teal mr-2 align-middle" />}
+              {link}
+            </a>
+          );
+        })}
       </div>
 
       {/* Secondary nav */}
@@ -76,8 +84,21 @@ const Navbar = () => {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-devin-card border-b border-devin-border p-4 flex flex-col gap-3">
-          {[...navLinks, ...secondaryLinks].map((link) => (
-            <a key={link} href="#" className="text-sm text-foreground hover:text-devin-teal transition-colors py-1">
+          {navLinks.map((link) => {
+            let href = "#";
+            if (link === "Home") href = "#home";
+            else if (link === "Metodologia") href = "#metodologia";
+            else if (link === "Transformação") href = "#transformacao";
+            else if (link === "Contactos") href = "#contactos";
+            
+            return (
+              <a key={link} href={href} className="text-sm text-foreground hover:text-devin-teal transition-colors py-1">
+                {link}
+              </a>
+            );
+          })}
+          {secondaryLinks.map((link) => (
+            <a key={link} href="#" className="text-sm text-devin-muted hover:text-foreground transition-colors py-1">
               {link}
             </a>
           ))}

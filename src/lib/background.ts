@@ -215,7 +215,7 @@ export function startBackground() {
   (renderer as any).outputColorSpace = (THREE as any).SRGBColorSpace || undefined;
 
   const canvas = renderer.domElement;
-  canvas.style.cssText = `position: fixed !important; top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: 0 !important; display: block !important;`;
+  canvas.style.cssText = `position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 0 !important; display: block !important;`;
   container.appendChild(canvas);
 
   // Shader material (using simplified subset of original). For fidelity, use the full shader from the provided file.
