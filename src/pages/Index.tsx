@@ -2,12 +2,6 @@ import React from "react";
 import "@/styles/background.css";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import CustomersSection from "@/components/CustomersSection";
-import UseCasesSection from "@/components/UseCasesSection";
-import LearnSection from "@/components/LearnSection";
-import UseCasesCarouselSection from "@/components/UseCasesCarouselSection";
-import IntegrationsSection from "@/components/IntegrationsSection";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -35,11 +29,6 @@ const Index = () => {
 
       <Navbar />
       <HeroSection />
-      <CustomersSection />
-      <UseCasesSection />
-      <LearnSection />
-      <IntegrationsSection />
-      <CTASection />
       <Footer />
     </div>
   );

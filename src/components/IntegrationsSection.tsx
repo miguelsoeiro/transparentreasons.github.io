@@ -30,9 +30,9 @@ const integrations = [
 
 const IntegrationsSection = () => {
   return (
-    <section className="py-24 border-t border-devin-border">
+    <section className="py-8 border-t border-devin-border">
       <div className="container max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Works where
             <br />
